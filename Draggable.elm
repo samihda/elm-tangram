@@ -11,7 +11,7 @@ module Draggable exposing
 import Html exposing (Html, Attribute, div)
 import Html.Attributes exposing (style)
 import Html.Events exposing (on)
-import Json.Decode as Json exposing (field)
+import Json.Decode as Json
 import Mouse exposing (Position)
 
 type alias Model =

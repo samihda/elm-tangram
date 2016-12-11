@@ -5,13 +5,12 @@ import Draggable as D exposing
   , updateHelp
   )
 
-import Html exposing (Html, div)
-import Html.App as App
+import Html exposing (Html, program, div)
 import Mouse exposing (Position)
 
-main : Program Never
+main : Program Never Model Msg
 main =
-  App.program
+  program
     { init = init
     , view = view
     , update = update
@@ -72,13 +71,13 @@ view : Model -> Html Msg
 view model =
   div
     []
-    [ D.view model.triangleUp |> App.map TriangleUpMove
-    , D.view model.triangleDown |> App.map TriangleDownMove
-    , D.view model.triangleLeft |> App.map TriangleLeftMove
-    , D.view model.triangleRight |> App.map TriangleRightMove
-    , D.view model.triangleUpRight |> App.map TriangleUpRightMove
-    , D.view model.diamond |> App.map DiamondMove
-    , D.view model.parallelogram |> App.map ParallelogramMove
+    [ D.view model.triangleUp |> Html.map TriangleUpMove
+    , D.view model.triangleDown |> Html.map TriangleDownMove
+    , D.view model.triangleLeft |> Html.map TriangleLeftMove
+    , D.view model.triangleRight |> Html.map TriangleRightMove
+    , D.view model.triangleUpRight |> Html.map TriangleUpRightMove
+    , D.view model.diamond |> Html.map DiamondMove
+    , D.view model.parallelogram |> Html.map ParallelogramMove
     ]
 
 subscriptions : Model -> Sub Msg
